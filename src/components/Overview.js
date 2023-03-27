@@ -3,6 +3,9 @@ import React from 'react';
 const Overview = (props) => {
     const { tasks } = props;
 
+    const handleEdit = (e) => {
+        e.preventDefault();
+    }
     return (
         <ul class="task-container">
             {tasks.map(task => (
@@ -14,6 +17,8 @@ const Overview = (props) => {
                     <div class="task__id">
                         <b>ID:</b> {task.id}
                     </div>
+
+                    <button onClick={handleEdit}>Edit Task</button>
                 </li>
             ))}
         </ul>
