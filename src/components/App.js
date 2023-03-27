@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Overview from './Overview';
 import uniqid from 'uniqid';
+import styles from '../style.css';
 
 class App extends Component {
   constructor(props) {
