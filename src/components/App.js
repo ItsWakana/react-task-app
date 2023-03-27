@@ -33,11 +33,13 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" onChange={this.handleInputChange}></input>
-        <button type='submit' onClick={this.addTask}>Submit Task</button>
-        <Overview tasks={this.state.tasks}/>
-      </div>
+      <form>
+        <div>
+          <input type="text" onChange={this.handleInputChange}></input>
+          <button type='submit' onClick={this.addTask}>Submit Task</button>
+          <Overview tasks={this.state.tasks}/>
+        </div>
+      </form>
     )
   }
 }
