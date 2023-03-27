@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Overview from './Overview';
+import uniqid from 'uniqid';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: 0,
-      tasks: [{id: 10, name: 'First Task'}],
+      id: uniqid(),
+      tasks: [{id: uniqid(), name: 'First Task'}],
       inputValue: ''
     }
 
@@ -22,7 +23,7 @@ class App extends Component {
   }
 
   addTask(e) {
-    console.log(e);
+    e.preventDefault();
     const task = {id: this.state.id, name: this.state.inputValue};
 
     this.setState({
