@@ -7,8 +7,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      id: uniqid(),
-      tasks: [{id: uniqid(), name: 'First Task'}],
+      id: 1,
+      tasks: [],
       inputValue: ''
     }
 
