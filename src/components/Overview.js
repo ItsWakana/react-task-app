@@ -4,11 +4,16 @@ const Overview = (props) => {
     const { tasks } = props;
 
     return (
-        <ul>
+        <ul class="task-container">
             {tasks.map(task => (
-                <li key={task.id}>
-                    ID: {task.id}
-                    Task: {task.name}
+                <li class="task" key={task.id}>
+                    <div class="task__name">
+                        <p><b>Task Name:</b></p> 
+                        <p>{task.name}</p>
+                    </div>
+                    <div class="task__id">
+                        <b>ID:</b> {task.id}
+                    </div>
                 </li>
             ))}
         </ul>
