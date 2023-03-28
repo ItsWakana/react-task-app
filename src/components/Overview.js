@@ -61,7 +61,7 @@ class Overview extends React.Component {
         const { isEditing } = this.state;
         return (
             <ul className="task-container">
-                {tasks.map(task => (
+                {tasks.map((task, index) => (
                     <li className="task" key={task.id}>
                         <div className="task__name">
                             <p><b>Task Name:</b></p> 
@@ -71,7 +71,7 @@ class Overview extends React.Component {
                             <b>ID:</b> {task.id}
                         </div>
                         {!isEditing &&                         <button onClick={this.handleEdit}>Edit Task</button>}
-                        {isEditing && <EditText onTaskEdit={onTaskEdit} />}
+                        {isEditing && <EditText onTaskEdit={onTaskEdit} taskIndex={index}/>}
                     </li>
                 ))}
             </ul>
