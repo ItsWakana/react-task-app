@@ -9,15 +9,6 @@ class Overview extends React.Component {
         this.state = {
             isEditing: false,
         }
-
-        this.handleEditCompletion = this.handleEditCompletion.bind(this);
-
-    }
-
-    handleEditCompletion() {
-        this.setState({
-            isEditing: !this.state.isEditing,
-        });
     }
 
     render() {
@@ -35,7 +26,7 @@ class Overview extends React.Component {
                             <b>ID:</b> {task.id}
                         </div>
                         {!task.isEditing &&                         <button onClick={(e) => onEditPhase(e,index)}>Edit Task</button>}
-                        {task.isEditing && <EditText onTaskEdit={onTaskEdit} taskIndex={index} onEditCompletion={this.handleEditCompletion}/>}
+                        {task.isEditing && <EditText onTaskEdit={onTaskEdit} taskIndex={index} />}
                     </li>
                 ))}
             </ul>

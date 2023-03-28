@@ -30,10 +30,9 @@ class EditText extends React.Component {
     }
 
     handleSubmit(e) {
-        const { onTaskEdit, taskIndex, onEditCompletion } = this.props;
+        const { onTaskEdit, taskIndex } = this.props;
         const { newTaskValue } = this.state;
         e.preventDefault();
-        onEditCompletion();
         onTaskEdit(newTaskValue, taskIndex)
     }
 
