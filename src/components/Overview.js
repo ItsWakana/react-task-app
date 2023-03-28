@@ -40,7 +40,6 @@ class Overview extends React.Component {
             isEditing: false,
         }
 
-        this.handleEdit = this.handleEdit.bind(this);
         this.handleEditCompletion = this.handleEditCompletion.bind(this);
 
     }
@@ -48,12 +47,12 @@ class Overview extends React.Component {
 
     // const [isEditing, setIsEditing] = useState(false);
 
-    handleEdit(e) {
-        e.preventDefault();
-        this.setState({
-            isEditing: !this.state.isEditing,
-        });
-    }
+    // handleEdit(e) {
+    //     e.preventDefault();
+    //     this.setState({
+    //         isEditing: !this.state.isEditing,
+    //     });
+    // }
 
     handleEditCompletion() {
         this.setState({
@@ -63,7 +62,7 @@ class Overview extends React.Component {
 
     render() {
 
-        const { tasks, onTaskEdit } = this.props;
+        const { tasks, onTaskEdit, onEditPhase } = this.props;
         const { isEditing } = this.state;
         return (
             <ul className="task-container">
@@ -76,8 +75,8 @@ class Overview extends React.Component {
                         <div className="task__id">
                             <b>ID:</b> {task.id}
                         </div>
-                        {!isEditing &&                         <button onClick={this.handleEdit}>Edit Task</button>}
-                        {isEditing && <EditText onTaskEdit={onTaskEdit} taskIndex={index} onEditCompletion={this.handleEditCompletion}/>}
+                        {!task.isEditing &&                         <button onClick={(e) => onEditPhase(e,index)}>Edit Task</button>}
+                        {task.isEditing && <EditText onTaskEdit={onTaskEdit} taskIndex={index} onEditCompletion={this.handleEditCompletion}/>}
                     </li>
                 ))}
             </ul>
