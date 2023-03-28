@@ -15,6 +15,7 @@ class App extends Component {
 
     this.addTask = this.addTask.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleTaskEdit = this.handleTaskEdit.bind(this);
   }
 
   handleInputChange(e) {
@@ -48,7 +49,7 @@ class App extends Component {
         <div>
           <input type="text" onChange={this.handleInputChange}></input>
           <button type='submit' onClick={this.addTask}>Submit Task</button>
-          <Overview tasks={this.state.tasks}/>
+          <Overview tasks={this.state.tasks} onTaskEdit={this.handleTaskEdit}/>
         </div>
       </form>
     )
