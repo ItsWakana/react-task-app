@@ -23,6 +23,15 @@ class App extends Component {
     })
   }
 
+  handleTaskEdit(newTaskName, index) {
+    this.setState(prevState => {
+      const tasksCopy = [...prevState.tasks];
+      tasksCopy[index].name = newTaskName;
+
+      return  {tasks: tasksCopy}
+    });
+  }
+
   addTask(e) {
     e.preventDefault();
     const task = {id: this.state.id, name: this.state.inputValue};
