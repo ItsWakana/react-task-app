@@ -40,7 +40,8 @@ class Overview extends React.Component {
             isEditing: false,
         }
 
-        this.handleEdit = this.handleEdit.bind(this)
+        this.handleEdit = this.handleEdit.bind(this);
+        this.handleEditCompletion = this.handleEditCompletion.bind(this);
 
     }
     // const { tasks } = props;
@@ -52,7 +53,12 @@ class Overview extends React.Component {
         this.setState({
             isEditing: !this.state.isEditing,
         });
+    }
 
+    handleEditCompletion() {
+        this.setState({
+            isEditing: !this.state.isEditing,
+        });
     }
 
     render() {
@@ -71,7 +77,7 @@ class Overview extends React.Component {
                             <b>ID:</b> {task.id}
                         </div>
                         {!isEditing &&                         <button onClick={this.handleEdit}>Edit Task</button>}
-                        {isEditing && <EditText onTaskEdit={onTaskEdit} taskIndex={index}/>}
+                        {isEditing && <EditText onTaskEdit={onTaskEdit} taskIndex={index} onEditCompletion={this.handleEditCompletion}/>}
                     </li>
                 ))}
             </ul>
