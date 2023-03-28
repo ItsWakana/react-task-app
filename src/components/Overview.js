@@ -54,9 +54,10 @@ class Overview extends React.Component {
         });
 
     }
+
     render() {
 
-        const { tasks } = this.props;
+        const { tasks, onTaskEdit } = this.props;
         const { isEditing } = this.state;
         return (
             <ul className="task-container">
@@ -70,7 +71,7 @@ class Overview extends React.Component {
                             <b>ID:</b> {task.id}
                         </div>
                         {!isEditing &&                         <button onClick={this.handleEdit}>Edit Task</button>}
-                        {isEditing && <EditText />}
+                        {isEditing && <EditText onTaskEdit={onTaskEdit} />}
                     </li>
                 ))}
             </ul>
